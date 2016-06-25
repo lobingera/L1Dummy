@@ -5,4 +5,4 @@ using Base.Test
 @test 1 == 1
 
 include("sample_imagepattern.jl")
-
+display(readdir())
