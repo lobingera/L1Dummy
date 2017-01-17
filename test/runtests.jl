@@ -1,4 +1,5 @@
 using L1Dummy
+using Gtk
 using Base.Test
 
 # write your own tests here
