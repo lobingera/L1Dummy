@@ -7,3 +7,5 @@ using Base.Test
 
 include("sample_imagepattern.jl")
 display(readdir())
+
+Pkg.test("Gtk")
