@@ -1,5 +1,5 @@
 using L1Dummy
-using Gtk
+using Rsvg
 using Base.Test
 
 # write your own tests here
@@ -8,4 +8,4 @@ using Base.Test
 include("sample_imagepattern.jl")
 display(readdir())
 
-Pkg.test("Gtk")
+Pkg.test("Rsvg")

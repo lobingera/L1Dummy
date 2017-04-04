@@ -1,3 +1,4 @@
 julia 0.4
 Cairo 0.2.32
 Gtk
+Rsvg
