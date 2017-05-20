@@ -2,6 +2,8 @@ using Cairo
 using Compat, Colors
 import Compat.String
 
+using L1Dummy
+
 @compat import Base.show
 
 if VERSION >= v"0.5.0-dev+7720"
@@ -207,7 +209,7 @@ include("test_painting.jl")
 
 display("script")
         io = IOBuffer()
-        surf = CairoScriptSurface(io,512,512)
+        surf = L1ScriptSurface(io,512,512)
         hdraw(surf,64,8,4) 
         finish(surf)
         
