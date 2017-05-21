@@ -197,7 +197,7 @@ include("test_painting.jl")
 
 
         output_file_name = "a.cs"
-        surf = CairoScriptSurface(output_file_name,512,512)
+        surf = L1ScriptSurface(output_file_name,512,512)
         hdraw(surf,64,8,4) 
         finish(surf)
 
