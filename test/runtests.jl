@@ -49,5 +49,8 @@ end
 
 # end
 
+using BinDeps
+BinDeps.debug("Cairo")
+
 Pkg.test("Cairo")
 nothing
