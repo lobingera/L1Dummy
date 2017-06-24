@@ -33,7 +33,7 @@ build_script:
 # Need to convert from shallow to complete for Pkg.clone to work
   - IF EXIST .git\shallow (git fetch --unshallow)
   - C:\projects\julia\bin\julia -e "versioninfo();
-      Pkg.clone(pwd(), \"L1Dummy\"); Pkg.build(\"L1Dummy\") ; using BinDeps; BinDeps.debug(\"Cairo"); "
+      Pkg.clone(pwd(), \"L1Dummy\"); Pkg.build(\"L1Dummy\") ; using BinDeps; BinDeps.debug(\"Cairo\"); "
 
 test_script:
   - C:\projects\julia\bin\julia --check-bounds=yes -e "Pkg.test(\"L1Dummy\")"
