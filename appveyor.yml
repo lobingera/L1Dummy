@@ -7,8 +7,8 @@ environment:
 # - JULIAVERSION: "julialang/bin/winnt/x86/0.5/julia-0.5-latest-win32.exe"
 # - JULIAVERSION: "julialang/bin/winnt/x86/0.5/julia-0.6-latest-win32.exe"
 #  - JULIAVERSION: "julianightlies/bin/winnt/x86/julia-latest-win32.exe"
-  - JULIA_URL: "https://julialang-s3.julialang.org/bin/winnt/x86/0.5/julia-0.5-latest-win32.exe"  
-#  - JULIA_URL: "https://julialang-s3.julialang.org/bin/winnt/x64/0.5/julia-0.5-latest-win64.exe"  
+#  - JULIA_URL: "https://julialang-s3.julialang.org/bin/winnt/x86/0.5/julia-0.5-latest-win32.exe"  
+  - JULIA_URL: "https://julialang-s3.julialang.org/bin/winnt/x64/0.6/julia-0.6-latest-win64.exe"  
 #  - JULIA_URL: "https://julialang-s3.julialang.org/bin/winnt/x86/0.6/julia-0.6-latest-win32.exe"  
 branches:
   only:
@@ -22,7 +22,7 @@ notifications:
     on_build_status_changed: false
 
 install:
-  - ps: "[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12"
+s  - ps: "[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12"
 # Download most recent Julia Windows binary
   - ps: (new-object net.webclient).DownloadFile(
         $env:JULIA_URL,
@@ -30,8 +30,8 @@ install:
 # Run installer silently, output to C:\projects\julia
   - C:\projects\julia-binary.exe /S /D=C:\projects\julia
 
-init:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#init:
+#  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 build_script:
 # Need to convert from shallow to complete for Pkg.clone to work
@@ -42,5 +42,5 @@ build_script:
 test_script:
   - C:\projects\julia\bin\julia --check-bounds=yes -e "Pkg.test(\"L1Dummy\")"
 
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#on_finish:
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
