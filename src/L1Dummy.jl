@@ -7,7 +7,7 @@ using Compat
 export L1ScriptSurface
 
 mutable struct L1Script <: GraphicsDevice
-    ptr::Ptr{Void}
+    ptr::Ptr{Nothing}
 end
 
 function destroy(s::L1Script)
