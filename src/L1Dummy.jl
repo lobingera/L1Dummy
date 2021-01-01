@@ -2,7 +2,7 @@ module L1Dummy
 
 # package code goes here
 using Graphics
-using Compat
+#using Compat
 
 export L1ScriptSurface
 
